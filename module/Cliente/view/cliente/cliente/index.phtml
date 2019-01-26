@@ -1,0 +1,30 @@
+ <?php
+ $title = 'Clientes';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <p>
+     <a href="<?php echo $this->url('cliente', array('action' => 'add'));?>">+ Cliente</a>
+ </p>
+
+ <table class="table">
+ <tr>
+     <th>Nome</th>
+     <th>Nascimento</th>
+     <th>Sexo</th>
+     <th>Salario</th>
+     <th>&nbsp;</th>
+ </tr>
+ <?php foreach ($clientes as $cliente): ?>
+ <tr>
+     <td><?php echo $cliente->getNome()?></td>
+     <td><?php echo $cliente->getDataNascimento()?></td>
+     <td><?php if($cliente->getSexo()==1): echo "Masculino"; else: echo "Feminino"; endif;?></td>
+     <td><?php echo $cliente->getSalario()?></td>
+     <td>
+         <a href="<?php echo $this->url('cliente', array('action'=>'edit', 'id' => $cliente->getId()));?>">Editar</a>
+         <a href="<?php echo $this->url('cliente', array('action'=>'delete', 'id' => $cliente->getId()));?>">Deletar</a>
+     </td>
+ </tr>
+ <?php endforeach; ?>
+ </table>

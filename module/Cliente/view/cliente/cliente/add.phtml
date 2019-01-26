@@ -1,0 +1,24 @@
+ <?php
+ $title = 'Novo cliente';
+ $this->headTitle($title);
+ ?>
+ <h1><?php echo $this->escapeHtml($title); ?></h1>
+ <?php
+ $form->setAttribute('action', $this->url('cliente', array('action' => 'add')));
+ $form->prepare();
+
+ echo $this->form()->openTag($form);
+ echo $this->formHidden($form->get('id'));
+ echo $this->formRow($form->get('nome'));
+ echo '<br>';
+ echo $this->formRow($form->get('salario'));
+ echo '<br>';
+ echo $this->formRow($form->get('sexo'));
+ echo '<br>';
+ echo $this->formRow($form->get('data_nascimento'));
+ echo $this->formRow($form->get('hora_nascimento'));
+ echo '<br>';
+ echo $this->formSubmit($form->get('submit'));
+ echo $this->form()->closeTag();
+
+ ?>

@@ -1,0 +1,34 @@
+
+<?php
+    $title = 'Editar Dados';
+    $this->headTitle($title);
+?>
+
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+
+<form action="/cliente/edit/1" method="post">
+    <div class="form-group">
+        <label>Nome</label>
+        <input type="text" class="form-control" name="nome" value="<?php echo $cliente->getNome()?>">
+    </div>
+    <div class="form-group">
+        <label>Salário</label>
+        <input type="text" class="form-control money" name="salario" value="<?php echo $cliente->getSalario()?>">
+    </div>
+    <div class="form-group">
+        <label>Sexo</label>
+        <label><input type="radio" name="sexo" value="1" <?php if($cliente->getSexo()==1) echo "checked";?>> Masculino</label>
+        <label><input type="radio" name="sexo" value="2" <?php if($cliente->getSexo()==2) echo "checked";?>> Feminino</label>
+    </div>
+    <div class="form-group">
+        <label>Data Nascimento</label>
+        <input type="text" class="form-control date" name="data_nascimento" placeholder="AAAA/MM/DD" value="<?php echo $cliente->getDataNascimento()?>">
+    </div>
+    <div class="form-group">
+        <label>Hora Nascimento</label>
+        <input type="text" class="form-control time" name="hora_nascimento" value="<?php echo $cliente->getHoraNascimento()?>">
+    </div>
+    <div class="form-group">
+        <input type="submit" class="btn btn-success">
+    </div>                                                
+</form>
